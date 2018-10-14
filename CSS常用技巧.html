@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)file:///C:/Users/Administrator/AppData/Local/Temp/MarkdownPadPreview.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>CSS常用技巧</title>
+
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<!--<base href="file:\\\C:\Users\Administrator\Desktop\">--><base href=".">
+</head>
+<body>
+<h1>IE6经典BUG</h1>
+<ol>
+<li>
+<p>padding与border算入宽高</p>
+<p>原因：未加文档声明造成非盒模型解析
+解决办法：加入文档声明&lt;!doctype html&gt;</p>
+</li>
+<li>
+<p>IE6在块元素、左右浮动、设定margin时造成margin双倍(双边距)</p>
+<p>解决办法：display:inline</p>
+</li>
+<li>
+<p>以下三种其实是同一种bug，其实也不算是个bug，举个例子：父标签高度20，子标签11，垂直居中，20-11=9，9要分给文字的上面与下面，怎么分？IE6就会与其它的不同，尽量避免。</p>
+<ol>
+<li>
+<p>字体大小为奇数时边框高度少1px</p>
+<p>解决办法：字体大小设置为偶数或line-height为偶数</p>
+</li>
+<li>
+<p>line-height,文本垂直居中差1px</p>
+<p>解决办法：padding-top代替line-height居中，或line-height加1或减1</p>
+</li>
+<li>
+<p>与父标签的宽度的奇偶不同的居中造成1px的偏离</p>
+<p>解决办法：如果父标签是奇数宽度，则子标签也用奇数宽度，如果父标签是偶数宽度，则子标签也用偶数宽度。</p>
+</li>
+</ol>
+</li>
+<li>
+<p>内部盒模型超出父级时，父级被撑大</p>
+<p>解决办法：父标签使用overflow:hidden</p>
+</li>
+<li>
+<p>line-height默认行高bug</p>
+<p>解决方法：line-height设值</p>
+</li>
+<li>
+<p>行标签之间会有一小段空白</p>
+<p>解决方法：float或结构并排（可读性差，不建议）</p>
+</li>
+<li>
+<p>标签高度无法小于19px</p>
+<p>解决方法：overflow:hidden</p>
+</li>
+<li>
+<p>在浮元素margin-bottom失效</p>
+<p>解决方法：显示设置高度or父标签设置padding-bottom代替子标签的margin-bottom or 再放个标签让父标签浮动，子标签margin-bottom,即（margin-bottom与float不同时作用于一个标签）</p>
+</li>
+<li>
+<p>img于块元素中，底边多出空白</p>
+<p>解决办法：冷饮级设置overflow:hidden;或img{display:block}或margin:-5px;</p>
+</li>
+<li>
+<p>li之间会有间距</p>
+<p>解决办法：float:left;</p>
+</li>
+<li>
+<p>块元素中有文字及右浮动的行元素，行元素换行</p>
+<p>解决办法：将行元素置于块元素内的文字前</p>
+</li>
+<li>
+<p>position下的left，bottom错位</p>
+<p>解决办法：为父级(relative层)设置宽高或添加*zoom:1</p>
+</li>
+<li>
+<p>子级中有设置position，则父级overflow失效</p>
+<p>解决办法：为父级设置position:relative</p>
+</li>
+</ol>
+<h2>BFC IFC GFC FFC</h2>
+<ol>
+<li>
+<p>BFC:</p>
+<p>其实就是box,有块级元素盒和行内元素盒。元素都是由盒组成的。总的来说，BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之也如此。</p>
+<p>BFC布局规则：</p>
+<ol>
+<li>每个元素的margin box的左边，与包含块border box的左边相接触（对于从左往右的格式化，否则相反）。即使存在浮动也是如此。</li>
+<li>BFC的区域不会与float box重叠</li>
+<li>Box垂直方向的距离由margin决定，属于同一个BFC的两个相邻box的margin会发生重叠</li>
+</ol>
+</li>
+<li>
+<p>IFC：</p>
+<p>就是把自己的区域隔离起来，不让其他元素干扰到它。</p>
+</li>
+<li>
+<p>FFC:</p>
+<p>自适应格式化上下文，就是自适应的盒子。</p>
+</li>
+<li>
+<p>GFC：</p>
+<p>是为了解决table渲染慢而诞生的</p>
+</li>
+</ol>
+<h2>Grid Layout</h2>
+<pre><code>就是用div快速做table表格，用一些公式快速的创建table
+</code></pre>
+
+
+
+
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
+</body></html>
