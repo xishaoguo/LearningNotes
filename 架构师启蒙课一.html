@@ -1,0 +1,742 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0073)file:///C:/Users/Administrator/AppData/Local/Temp/MarkdownPadPreview.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>架构师启蒙课一</title>
+
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<!--<base href="file:\\\C:\Users\Administrator\Desktop\">--><base href=".">
+</head>
+<body>
+<h1>架构师启蒙课第一节</h1>
+<h2>单面和多页：</h2>
+<p>单页就是一个html带一堆js，spa</p>
+<p>多页就是一堆html带一堆js,mpa</p>
+<p>前端没有路由，前端的路由都是假的，现在的三大框架都是单页应用 。</p>
+<h2>代码流程:</h2>
+<ol>
+<li>创建项目目录</li>
+<li>
+<p>初始化项目目录</p>
+<pre><code>npm init
+</code></pre>
+
+</li>
+<li>
+<p>安装webpack</p>
+<pre><code>npm install webpack --save-dev
+npm install webpack-cli --save-dev
+-dev的意思是：测试环境，如果上线环境需要这个包，就去掉-dev
+</code></pre>
+
+</li>
+<li>根目录下创建src目录，里面创建index.html和index.js文件。</li>
+<li>
+<p>在index.html中，写一个id为app的div标签</p>
+<pre><code>&lt;div id = "app"&gt;&lt;/div&gt;
+</code></pre>
+
+</li>
+<li>
+<p>配置package.json文件，在scripts字段下添加配置代码</p>
+<pre><code>"dev":"webpack --mode development",
+"prod":"webpack --mode production"
+</code></pre>
+
+</li>
+<li>
+<p>在index.js中打印一句话：</p>
+<pre><code>console.log("hello world");
+</code></pre>
+
+</li>
+<li>终端执行npm run dev,可以看到webpack已经生成dist目录，并编辑好了main.js。</li>
+<li>在index.html中引入main.js，并在浏览器打开，我们就会在控制台看见页面已经成功的执行了编辑后的js文件。如果我们执行npm run prod，就会编辑上线环境的代码，会看到main.js会被压缩成了一行了。</li>
+<li>
+<p>安装html-webpack-plugin</p>
+<pre><code>npm i --save-dev html-webpack-plugin
+</code></pre>
+
+</li>
+<li>
+<p>配置webpack，根目录下创建webpack.config.js，并在里面添加上配置代码：</p>
+<pre><code>const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+module.exports = {
+  new HtmlWebpackPlugin({  // Also generate a test.html
+       filename: 'index.html',//默认生成的路径，生成到dist里
+       template: 'src/index.html'//页面路径
+  }) 
+｝
+</code></pre>
+
+</li>
+<li>
+<p>执行npm run dev 可以看到生成的dist目录里有两个文件，一个是Index.html一个是main.js。我们将index.html在浏览器中打开，发现已经成功执行。（注意，src下的html文件中，不需要引用index.js）</p>
+</li>
+<li>在src目录下新建components文件夹，在components目录下创建sync目录，并在sync目录下新建index.js(一定不要建成sync.js，会有意想不到的麻烦)和sync.css</li>
+<li>
+<p>在sync.js中写入代码:</p>
+<pre><code>const sync = () =&gt; {
+    console.log("this is sync");
+}
+export {
+    sync
+}
+</code></pre>
+
+</li>
+<li>
+<p>在src目录下的index.js这个主js文件中，引入暴露的sync接口。</p>
+<pre><code>import {sync} from "./components/sync";//ES6解构
+sync();
+</code></pre>
+
+</li>
+<li>重新执行npm run dev后，刷新index.html，会看到控制台已经成功打印信息。</li>
+<li>webpack默认支持编辑js，如果是css和html就还需要重新配置。</li>
+<li>
+<p>安装支持css样式的包。</p>
+<pre><code>npm install style-loader --save-dev
+npm install css-loader --save-dev
+</code></pre>
+
+</li>
+<li>
+<p>配置webpack.config.js文件</p>
+<pre><code>const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+module.exports = {
+    module:{
+        rules: [
+            {
+              test: /\.css$/,
+              use: [ "style-loader", {
+                loader: 'css-loader',
+                options: {
+                  modules: true,
+                  localIdentName: '[path][name]__[local]--[hash:base64:5]'
+                }
+              } ]
+            }
+        ]
+    },
+    plugins: [
+      new HtmlWebpackPlugin({  // Also generate a test.html
+        filename: 'index.html',//默认生成的路径，生成到dist里
+        template: 'src/index.html'//页面路径
+    })  
+  ]
+}
+</code></pre>
+
+</li>
+<li>
+<p>在sync目录下的index.js文件中，导入main.css。（sync目录下的js文件，一定不能写成sync.js。会有意想不到的结果。）</p>
+<pre><code>import item from "./sync.css";
+document.getElementById("app").innerHTML=`&lt;h1 class="${item.test}"&gt;大家好才是真的好&lt;/h1&gt;`;
+const sync = () =&gt; {
+    console.log("sync");
+}
+export {
+    sync
+};
+</code></pre>
+
+</li>
+<li>执行npm run dev。刷新页面，看到样式已经引入到了页面中。</li>
+<li>实现前端工程化，需要区分开发环境和上线环境，项目根目录下创建config文件夹,并在里面创建开发路由webpack.development.js和上线路由webpack.production.js</li>
+<li>
+<p>安装判断开发环境还是上线环境yargs-parser和合并js的webpack-merge</p>
+<pre><code>npm i yargs-parser --save-dev
+npm install webpack-merge --save-dev
+</code></pre>
+
+</li>
+<li>
+<p>webpack.config.js中使用yargs和关联config文件夹下的两个路由文件。导入merge，并对外暴露出去。</p>
+<pre><code>const HtmlWebpackPlugin = require('html-webpack-plugin')
+const argv = require('yargs-parser')(process.argv.slice(2))
+//console.log("这是得到 的"+argv)
+const _mode = argv.mode || "development";
+const _mergeConfig = require(`./config/webpack.${_mode}.js`);
+const merge = require('webpack-merge');
+let webpackConfig = {
+    module:{
+        rules: [
+            {
+              test: /\.css$/,
+              use: [ "style-loader", {
+                loader: 'css-loader',
+                options: {
+                  modules: true,
+                  localIdentName: '[path][name]__[local]--[hash:base64:5]'
+                }
+              } ]
+            }
+        ]
+    },
+    plugins: [
+      new HtmlWebpackPlugin({  // Also generate a test.html
+        filename: 'index.html',//默认生成的路径，生成到dist里
+        template: 'src/index.html'//页面路径
+    })  
+  ]
+}
+module.exports = merge(_mergeConfig,webpackConfig);
+</code></pre>
+
+</li>
+<li>
+<p>运行npm run dev，正常执行，运行npm run prod也能正常执行。</p>
+</li>
+<li>
+<p>将css从js中提取出来，安装mini-css-extract-plugin</p>
+<pre><code>npm install mini-css-extract-plugin --save-dev
+</code></pre>
+
+</li>
+<li>
+<p>在webpack.config.js文件中引用mini</p>
+<pre><code>const HtmlWebpackPlugin = require('html-webpack-plugin')
+const argv = require('yargs-parser')(process.argv.slice(2))
+//console.log("这是得到 的"+argv)
+const _mode = argv.mode || "development";
+const _mergeConfig = require(`./config/webpack.${_mode}.js`);
+const merge = require('webpack-merge');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+let webpackConfig = {
+    module:{
+        rules: [
+            {
+              test: /\.css$/,
+              use: [ {
+                loader: MiniCssExtractPlugin.loader
+              }, {
+                loader: 'css-loader',
+                options: {
+                  modules: true,
+                  localIdentName: '[path][name]__[local]--[hash:base64:5]'
+                }
+              } ]
+            }
+        ]
+    },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: "[name].css",
+            chunkFilename: "[id].css"
+          }),
+        new HtmlWebpackPlugin({  // Also generate a test.html
+            filename: 'index.html',//默认生成的路径，生成到dist里
+            template: 'src/index.html'//页面路径
+    })  
+  ]
+}
+module.exports = merge(_mergeConfig,webpackConfig);
+</code></pre>
+
+</li>
+<li>
+<p>我们发现在，所有的东西都生成在了dist文件夹里，如果时间长了，文件会很多，不方便管理，接下来要把文件归类，js文件生成到scripts包里，css文件生成到style包里。</p>
+<ol>
+<li>
+<p>修改mini配置代码：</p>
+<pre><code>new MiniCssExtractPlugin({
+    filename: "style/[name].css",//在文件名前加上style目录
+    chunkFilename: "[id].css"
+}),
+</code></pre>
+
+</li>
+<li>
+<p>webpack.development.js中添加配置代码：</p>
+<pre><code>module.exports = {
+    output:{
+        filename:"scripts/[name].bundles.js"
+    }
+};
+</code></pre>
+
+</li>
+</ol>
+</li>
+<li>删掉dist目录后重新执行npm run dev，会发现新生成的dist目录下多了两个文件夹：scripts和style，里面有对应的js和css文件。</li>
+<li>
+<p>配置上线环境，打hash：</p>
+<ol>
+<li>
+<p>修改mini配置代码：</p>
+<pre><code>const HtmlWebpackPlugin = require('html-webpack-plugin')
+const argv = require('yargs-parser')(process.argv.slice(2))
+//console.log("这是得到 的"+argv)
+const _mode = argv.mode || "development";
+const _prodMode = (_mode == "production" ? true:false);
+const _mergeConfig = require(`./config/webpack.${_mode}.js`);
+const merge = require('webpack-merge');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+let webpackConfig = {
+    module:{
+        rules: [
+            {
+              test: /\.css$/,
+              use: [ {
+                loader: MiniCssExtractPlugin.loader
+              }, {
+                loader: 'css-loader',
+                options: {
+                  modules: true,
+                  localIdentName: '[path][name]__[local]--[hash:base64:5]'
+                }
+              } ]
+            }
+        ]
+    },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: _prodMode ? "styles/[name].[contenthash:5].css":"styles/[name].css",
+            chunkFilename: _prodMode ? "styles/[id].[contenthash:5].css":"styles/[id].css"
+        }),
+        new HtmlWebpackPlugin({  // Also generate a test.html
+            filename: 'index.html',//默认生成的路径，生成到dist里
+            template: 'src/index.html'//页面路径
+    })  
+  ]
+}
+module.exports = merge(_mergeConfig,webpackConfig);
+</code></pre>
+
+</li>
+<li>
+<p>webpack.production.js</p>
+<pre><code>output: {
+    filename: "scripts/[name].[contenthash:5].bundles.js"
+},
+</code></pre>
+
+</li>
+</ol>
+</li>
+<li>这时，我们注意到，js压缩了，但是html和css并没有压缩，接下来我们就要压缩html和css。</li>
+<li>
+<p>在webpack.config.js文件中的plugins字段中添加html-webpack的配置，运行就会看到html文件已经被压缩</p>
+<pre><code>    new HtmlWebpackPlugin({  // Also generate a test.html
+    filename: 'index.html',//默认生成的路径，生成到dist里
+    template: 'src/index.html',//页面路径
+    minify:{
+        removeComments:_prodMode,
+        collapseWhitespace:_prodMode
+    }
+</code></pre>
+
+<p>}) </p>
+</li>
+<li>
+<p>安装webpack-dev-server，它是用来启动一个后台服务器的，可以模拟后台接口数据，并进行时时监听，只要代码修改，就会刷新服务：</p>
+<pre><code>npm install webpack-dev-server --save-dev
+</code></pre>
+
+</li>
+<li>
+<p>配置package.json，将dev-server配置到文件中。</p>
+<pre><code>"scripts": {
+    "test": "echo \"Error: no test specified\" &amp;&amp; exit 1",
+    "dev": "webpack --mode development",
+    "dev:server":"webpack-dev-server --mode development",
+    "prod": "webpack --mode production"
+},
+</code></pre>
+
+</li>
+<li>
+<p>配置webpack.confing.js</p>
+<pre><code>devServer: {
+    before(app) {
+        app.get("/api/test", (req, res) =&gt; {
+            res.json({
+                code: 200,
+                message: "Hello World"
+            });
+        });
+    }
+},
+</code></pre>
+
+</li>
+<li>运行npm run dev:server就会启动一个端口服务，比如：localhost:8080,这时，我们就可以访问我们设置好的地址，也可以在后面加上我们写好的路由：/api/test，查看返回的json数据。</li>
+<li>
+<p>接下来我们就可以在sync下的index.js中请求这个接口，用来进行测试了，可以很方便的将后台给我们的接口数据按请求和解析的方式进行开发。</p>
+<pre><code>    import css from "./sync.css";
+    document.getElementById("app").innerHTML=`&lt;h1 class = "${css.test}"&gt;你妹的呀&lt;/h1&gt;`;
+    const sync = () =&gt;{
+       console.log("sync");
+        fetch("/api/test")
+        .then(response=&gt;response.json())
+        .then(data=&gt;{
+            console.log("fethc结果:"+data.message);
+            console.log("更新？");
+        })
+        .catch(err=&gt;{
+            console.log("🍎请稍事休息~");
+            //发短信,收集错误
+            //navigator.sendBeacon("http://www.aa.com/a.gif?errinfo="+err);
+        });
+    }
+    export {
+        sync
+    }
+</code></pre>
+
+</li>
+<li>
+<p>components目录下创建banner文件夹，里面创建index.js,并编写代码：</p>
+<pre><code>    const asyncbanner = {
+        init(){
+            console.log("banner");
+        }
+    }
+    export default asyncbanner;
+</code></pre>
+
+</li>
+<li>
+<p>在src目录下的index.js主文件中导入这个js文件。</p>
+<pre><code>import {sync} from "./components/sync/index";
+//下面这行代码使用了魔法注释，如果不使用魔法注释，会发现在dist目录下生成的js文件名都是从0开始的，不方便识别。
+import(/* webpackChunkName:"async-banner" */"./components/banner/index").then(_=&gt;{
+    _.default.init();
+});
+sync();
+</code></pre>
+
+</li>
+<li>
+<p>不要用原生的lodash,安装lodash-es:</p>
+<pre><code>npm install lodash-es --save-dev
+</code></pre>
+
+</li>
+<li>
+<p>如果不装lodash，会有一些没用的代码打包进项目.</p>
+<pre><code>import css from "./sync.css";
+import {isArray} from "lodash-es";
+const isArrayfn = (agrs)=&gt;{
+    console.log(isArray(agrs));
+}
+document.getElementById("app").innerHTML=`&lt;h1 class = "${css.test}"&gt;你妹的呀&lt;/h1&gt;`;
+const sync = () =&gt;{
+    console.log("sync");
+    fetch("/api/test")
+    .then(response=&gt;response.json())
+    .then(data=&gt;{
+        console.log("fethc结果:"+data.message);
+        console.log("更新？");
+    })
+    .catch(err=&gt;{
+        console.log("嘟嘟嘟。。。请稍候");
+        navigator.sendBeacon("远程错误地址"+err);
+    });
+}
+export {
+    sync,
+    isArrayfn
+}
+</code></pre>
+
+</li>
+</ol>
+<h2>注意点：</h2>
+<ol>
+<li>package.json文件中，有一些关键字不能乱动，如果乱改，会出现麻烦。这些关键字（例如test）可以使用npm test直接运行，其它自定义的需要使用npm run 自定义的名字    运行。
+我们可以直接输入npm命令查看都有哪些关键字</li>
+<li>现在向后台发请求，已经不再用ajax了，而是用fatch("要请求的地址")和navigator.sendBeacon("请求地址")。如果是做统计的时候，就用navigator.sendBeacon("")，它不占浏览器的并发。</li>
+</ol>
+
+
+
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
+</body></html>
