@@ -1,0 +1,623 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0073)file:///C:/Users/Administrator/AppData/Local/Temp/MarkdownPadPreview.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>架构师启蒙课第二讲</title>
+
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<!--<base href="file:\\\C:\Users\Administrator\Desktop\">--><base href=".">
+</head>
+<body>
+<h1>架框师启蒙课第二讲(跟第一节连接着的)</h1>
+<h2>搭建环境过程：</h2>
+<ol>
+<li>
+<p>压缩css</p>
+<ol>
+<li>
+<p>安装optimize-css-assets-webpack-plugin</p>
+<pre><code>npm install --save-dev optimize-css-assets-webpack-plugin
+</code></pre>
+
+</li>
+<li>
+<p>在config目录下的webpack.production.js中插入代码：</p>
+<pre><code>const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+module.exports = {
+    output: {
+        filename: "scripts/[name].[contenthash:5].bundles.js",
+        //公司的Cdn
+        publicPath: "/"
+    },
+    plugins: [
+        new OptimizeCssAssetsPlugin({
+            assetNameRegExp: /\.css$/g,
+            cssProcessor: require('cssnano'),
+            cssProcessorPluginOptions: {
+                preset: ['default', {
+                    discardComments: {
+                        removeAll: true
+                    }
+                }],
+            },
+            canPrint: true
+        })
+    ]
+};
+</code></pre>
+
+</li>
+<li>
+<p>执行npm run prod命令，在生成的dist目录中就会看到css文件已经被压缩。</p>
+</li>
+</ol>
+</li>
+<li>
+<p>这时候的项目基本上算是可以了，但是发现如果修改css，js也会跟着变，修改js，css也会跟着变，这是很郁闷的事情，需要优化一下项目。优化方法就是在给文件名打hash的时候，使用contenthash，而不使用hash或者chunkhash。</p>
+</li>
+<li>
+<p>优化终端窗口。</p>
+<ol>
+<li>
+<p>安装webpack-build-notifier</p>
+<pre><code>npm install webpack-build-notifier --save-dev
+</code></pre>
+
+</li>
+<li>
+<p>在webpack.config.js中引入webpack-build-notifier模块，和path模块（因为自定义图片需要用到图片路径）</p>
+<pre><code>const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
+const {resolve} = require("path");
+
+plugins:[
+    new WebpackBuildNotifierPlugin({
+        title: "webpack执行结果",
+        logo: resolve("./yuyu.png"),
+        suppressSuccess: true
+    })
+]
+</code></pre>
+
+</li>
+<li>
+<p>这时候执行npm run prod，当执行完毕后就会看到屏幕右上角弹出执行结果提示（妈妈再也不用担心我不知道执行结果）</p>
+</li>
+<li>
+<p>自定义终端窗口标题title，安装node-bash-title</p>
+<pre><code>npm install node-bash-title --save-dev
+</code></pre>
+
+</li>
+<li>
+<p>在webpack.config.js中使用:</p>
+<pre><code>  const setTitle = require('node-bash-title');
+    setTitle('🍻  Server');
+</code></pre>
+
+</li>
+<li>
+<p>标题超大背景化： 安装set-iterm2-badge</p>
+<pre><code>npm install set-iterm2-badge --save-dev
+
+var setIterm2Badge = require('set-iterm2-badge');
+setIterm2Badge("这是我的超大标题");
+</code></pre>
+
+</li>
+</ol>
+</li>
+<li>
+<p>添加进度条</p>
+<ol>
+<li>
+<p>安装progress-bar-webpack-plugin</p>
+<pre><code>npm i -D progress-bar-webpack-plugin
+</code></pre>
+
+</li>
+<li>
+<p>使用：</p>
+<pre><code>var ProgressBarPlugin = require('progress-bar-webpack-plugin');
+
+...
+
+plugins: [
+  new ProgressBarPlugin()
+]
+</code></pre>
+
+</li>
+</ol>
+</li>
+<li>
+<p>查看每个文件编辑耗时：</p>
+<ol>
+<li>
+<p>安装：speed-measure-webpack-plugin</p>
+<pre><code>npm install speed-measure-webpack-plugin --save-dev
+</code></pre>
+
+</li>
+<li>
+<p>代码引入：</p>
+<pre><code>const SpeedMeasurePlugin = require("speed-measure-webpack-plugin"); 
+const smp = new SpeedMeasurePlugin();
+const webpackConfig = smp.wrap({//主要是这里，意思是将最后开放出去的数据外面再包一层
+  plugins: [
+    new MyPlugin(),
+    new MyOtherPlugin()
+  ]
+});
+</code></pre>
+
+</li>
+</ol>
+</li>
+<li>
+<p>自动删除dist目录：</p>
+<ol>
+<li>
+<p>安装clean-webpack-plugin</p>
+<pre><code>npm i clean-webpack-plugin --save-dev
+</code></pre>
+
+</li>
+<li>
+<p>代码引用</p>
+<pre><code>const CleanWebpackPlugin = require('clean-webpack-plugin')
+
+// webpack config
+{
+  plugins: [
+    new CleanWebpackPlugin(paths [, {options}])
+  ]
+}
+</code></pre>
+
+</li>
+</ol>
+</li>
+<li>
+<p>添加loading样式：</p>
+<ol>
+<li>
+<p>webpack.config.js配置;</p>
+<pre><code> new HtmlWebpackPlugin({
+    filename: 'index.html',
+    template: 'src/index.html',
+    //template: 'src/index.js',
+    loading:"加载中，请稍等...",
+    minify: {
+        removeComments: _modeflag,
+        collapseWhitespace: _modeflag
+    }
+}),
+</code></pre>
+
+</li>
+<li>
+<p>index.html页面引入:</p>
+<pre><code>&lt;%= htmlWebpackPlugin.options.loading.html %&gt;
+</code></pre>
+
+</li>
+<li>
+<p>这时需要进入到dist目录，并且开启一个服务：http-server，如果没有这个服务需要先安装：</p>
+<pre><code>npm install http-server --save-dev
+</code></pre>
+
+</li>
+</ol>
+</li>
+<li>
+<p>抽取公共js部分：</p>
+<pre><code>    webpack.config.js配置
+
+    optimization: {
+        noEmitOnErrors: false,
+        //namedChunks
+        //moduleIds
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    chunks: 'initial',
+                    name: "common",
+                    minChunks: 2,
+                    maxInitialRequests: 5,
+                    minSize: 0
+                }
+            }
+        },
+        runtimeChunk: {
+            name: "runtime"
+        }
+    },
+    plugins: [
+
+    ]
+</code></pre>
+
+</li>
+<li>
+<p>加载公共js：</p>
+<ol>
+<li>
+<p>在components目录下创建common目录做为公共js目录，里面创建commons.js，在这里可以写你想写的任何代码。（记得对外暴露接口）</p>
+<pre><code>function help(){};
+help.version = "0.0.1";
+export default help;
+</code></pre>
+
+</li>
+<li>
+<p>在sync目录中的js中引用</p>
+<pre><code>import help from "../common/index.js";
+console.log(help.version);
+</code></pre>
+
+</li>
+<li>
+<p>这时候在重新执行编辑，会看到console中已经打印出了help.version。但是在dist/scripts中并没有生成common.js，这是因为webpack有个机制，是当js文件小于30k的时候是不会单独打包的，因为浪费请求，如果需要强行打包，需要在代码里面配置。</p>
+<pre><code>optimization: {
+    noEmitOnErrors: false,
+    //namedChunks
+    //moduleIds
+    splitChunks: {
+        cacheGroups: {
+            commons: {
+                chunks: 'initial',
+                name: "common",
+                minChunks: 2,//将这个字段改成1就是强制打印出js文件，但是一般写成2
+                maxInitialRequests: 5,
+                minSize: 0
+            }
+        }
+    },
+    runtimeChunk: {
+        name: "runtime"
+    }
+},
+</code></pre>
+
+</li>
+</ol>
+</li>
+<li>
+<p>压缩处理图片：</p>
+<ol>
+<li>
+<p>安装image-webpack-loader</p>
+<p>npm install image-webpack-loader --save-dev</p>
+</li>
+<li>
+<p>webpack.config.js引用:</p>
+<pre><code>module: {
+    rules: [{
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+            'file-loader',
+            {
+                loader: 'image-webpack-loader',
+                options: {
+                    pngquant: {
+                        quality: '65-90',
+                        speed: 4
+                    }
+                }
+            },
+        ],
+    }
+},
+</code></pre>
+
+</li>
+</ol>
+</li>
+<li>到这里，单页的配置基本上算是已经完成了。</li>
+</ol>
+<h2>技术选型：</h2>
+<ol>
+<li>单页 应用的场景 内部系统 移动端 三大框架</li>
+<li>单页的路由 两种 pushstate hash a/b #/a/b  vue-router history </li>
+<li>jq 三大框架 微前端</li>
+<li>运营页面 jq 快一点 vue react</li>
+<li>大型的单页 ng </li>
+<li>各种各样的cli </li>
+</ol>
+<h2>注意点：</h2>
+<ol>
+<li>hash:修改整个网站所有的文件。</li>
+<li>chunkhash:修改chank下的文件。</li>
+<li>contenthash:在chunkhash的基础上，将css和js平行化，互不影响</li>
+<li>在配置progress-bar-webpack-plugin进度条的时候，会跟set-iterm2-badge有冲突，需要将set-iterm2-badge注释掉</li>
+<li>移动端少发请求。js请求发多了会阻塞进程</li>
+</ol>
+
+
+
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
+</body></html>
