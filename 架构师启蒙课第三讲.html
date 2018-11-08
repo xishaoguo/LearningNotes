@@ -1,0 +1,799 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0073)file:///C:/Users/Administrator/AppData/Local/Temp/MarkdownPadPreview.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>架构师启蒙课第三讲</title>
+
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<!--<base href="file:\\\C:\Users\Administrator\Desktop\">--><base href=".">
+</head>
+<body>
+<h1>架构师启蒙课第三讲</h1>
+<h2>环境搭建过程：</h2>
+<ol>
+<li>创建项目目录mpademo</li>
+<li>终端cd mpademo，执行npm init，初始化目录</li>
+<li>项目根目录下创建src目录，并在src目录下创建nodeui和webapp两个目录（nodeui存放后台node文件，webapp存放前端文件）</li>
+<li>在项目根目录下创建gulpfile.js和.babelrc文件,在nodeui下创建app.js</li>
+<li>
+<p>安装koa，并在app.js中引入koa</p>
+<pre><code>npm install koa --save
+_____________________________
+//app.js
+import koa from "koa";
+</code></pre>
+
+</li>
+<li>
+<p>nodeui目录下创建config、models、routes、middwares目录，在config目录下创建index.js文件，routes目录中创建routesInit.js文件。</p>
+</li>
+<li>
+<p>在app.js中引入config目录下的index.js和routes目录下的routesInit.js文件。</p>
+<pre><code>    import Koa from "koa"
+    improt config from "./config"
+    import routesInit from "./routes/routesInit.js"
+
+    const app = new Koa();
+    app.listen(config.port,()=&gt;{
+        console.log(`我设置监听的端口是:${config.port}`);
+    });
+</code></pre>
+
+</li>
+<li>
+<p>在config目录下的index.js中编写判断请求环境的代码（判断是上线环境还是开发环境）</p>
+<pre><code>    import {extend} from "lodash";
+
+    let config = {
+        env:process.env.NODE_ENV
+    }
+    if(process.env.NODE_ENV =="development"){
+        const localConfig={
+            port:8081
+        }
+    }
+    if(process.env.NODE_ENV == "production"){
+        const proConfig = {
+            port:80
+        }
+    }
+    export default config;
+</code></pre>
+
+</li>
+<li>
+<p>安装lodash-es和koa-simple-router</p>
+<pre><code>    npm install lodash-es --save
+    npm install koa-simple-router --save
+</code></pre>
+
+</li>
+<li>
+<p>在app.js中引入koa-simple-router，在routersInit.js中写入官司网的实例代码，</p>
+<pre><code>    //app.js
+    import router from "koa-simple-router";
+    routesInit.init(app,router);
+
+    //routersInit.js
+    let routerInit = {
+        init(app,router){
+            app.use(router(_ =&gt; {
+              _.get('/', (ctx, next) =&gt; {
+                ctx.body = 'hello'
+              })
+            }))
+        }
+    }
+    export default routesInit;
+</code></pre>
+
+</li>
+<li>
+<p>安装gulp、gulp-babel、gulp-watch</p>
+<pre><code>    npm install gulp --save-dev
+    npm install --save-dev @babel/core
+</code></pre>
+
+</li>
+<li>
+<p>在gulpfile.js中编写代码：</p>
+<pre><code>    const gulp = require("gulp");
+    const watch = require("gulp-watch");
+    const babel = require("gulp-babel");
+    //开发环境的gulp
+    gulp.task("builddev", () =&gt; {
+        return watch('src/nodeuii/**/*.js', {
+            ignoreInitial: false
+        }, () =&gt; {
+            return gulp.src('src/nodeuii/**/*.js')
+                .pipe(babel({
+                    babelrc: false,
+                    "plugins": ["transform-es2015-modules-commonjs"]
+                })).pipe(gulp.dest('dist'))
+        })
+    });
+    //上线环境的Gulp
+    gulp.task("buildprod", () =&gt; {
+    return gulp.src('./src/nodeuii/**/*.js')
+        .pipe(babel({
+            babelrc: false,
+            ignore: ['./src/nodeuii/config/index.js'],
+            "plugins": ["transform-es2015-modules-commonjs"]
+        }))
+        .pipe(gulp.dest('./dist'));
+    });
+
+    let _task = ["builddev"];
+    if (process.env.NODE_ENV == "production") {
+        _task = ["buildprod"];
+    }
+    gulp.task("default", _task);
+</code></pre>
+
+</li>
+<li>
+<p>安装babel-plugin-transform-es2015-modules-commonjs</p>
+<pre><code>    npm install --save-dev babel-plugin-transform-es2015-modules-commonjs
+    //代码中引用
+    const babel = require('gulp-babel');
+</code></pre>
+
+</li>
+<li>
+<p>配置package.json，在scripts字段下添加：</p>
+<pre><code>    "server:dev": "cross-env NODE_ENV=development gulp",
+    "server:prod": "cross-env NODE_ENV=production gulp",
+    "server:start": "cross-env NODE_ENV=development supervisor ./dist/app.js",
+</code></pre>
+
+</li>
+<li>
+<p>这时候打开两个窗口，一个用来执行npm run server:dev，一个运行npm run server:start，打开浏览器，就可以看见我们在代码中输入的内容“hello world”，正个过程中，使用到的npm包有：</p>
+<pre><code>    npm install --save koa
+    npm install --save koa-simple-router
+    npm install --save lodash
+    npm install --save lodash-es
+    npm install --save-dev @babel/core
+    npm install --save-dev babel-plugin-transform-es2015-modules-commonjs
+    npm install --save-dev cross-env
+    npm install --save-dev gulp
+    npm install --save-dev gulp-babel
+    npm install --save-dev gulp-watch
+</code></pre>
+
+</li>
+<li>
+<p>安装gulp-rollup</p>
+<pre><code>    npm install gulp-rollup --save-dev
+</code></pre>
+
+</li>
+<li>
+<p>配置上线环境的gulp</p>
+<pre><code>    gulp.task("buildprod",() =&gt; {
+        gulp.src('./src/nodeui/**/*.js')
+        .pipe(babel({
+            babelrc:false,
+            "plugins": ["transform-es2015-modules-commonjs"]
+        }))
+        .pipe(rollup({
+            input:'./src/nodeui/config/index.js'
+        })).pipe(gulp.dest('./dist'));
+    });
+</code></pre>
+
+</li>
+<li>
+<p>代码中引入gulp-rollup</p>
+<pre><code>    const rollup = require('gulp-rollup');
+</code></pre>
+
+</li>
+<li>
+<p>这时候如果运行代码，会报个错，因为还需要在代码中添加配置：</p>
+<pre><code>gulp.task("buildprod",() =&gt; {
+        gulp.src('./src/nodeui/**/*.js')
+        .pipe(babel({
+            babelrc:false,
+            "plugins": ["transform-es2015-modules-commonjs"]
+        }))
+        .pipe(rollup({
+            output:{
+                format:"cjs"
+            },
+            input:'./src/nodeui/config/index.js'
+        })).pipe(gulp.dest('./dist'));
+    });
+</code></pre>
+
+</li>
+<li>
+<p>在config目录下的index.js中编写测试代码，写在config变量下面，看看编辑后的dist目录下的index.js中有没有这段代码，真正项目中我们是不需要这行代码的，我们的目的就是过滤掉没用的代码。</p>
+<pre><code>    if(false){
+        console.log(123);
+    }
+</code></pre>
+
+</li>
+<li>
+<p>我们需要将开发中有用但是上线了却没有用的代码过滤掉，这时需要安装rollup-plugin-replace</p>
+<pre><code>    npm install --save-dev rollup-plugin-replace
+</code></pre>
+
+</li>
+<li>
+<p>插入rollup-plugin-replace代码</p>
+<pre><code>    const replace from 'rollup-plugin-replace';
+
+    gulp.task("buildprod",() =&gt; {
+        gulp.src('./src/nodeui/**/*.js')
+        .pipe(babel({
+            babelrc:false,
+            "plugins": ["transform-es2015-modules-commonjs"]
+        }))
+        .pipe(rollup({
+            output:{
+                format:"cjs"
+            },
+            plugins: [
+                replace({
+                  "process.env.NODE_ENV": JSON.stringify('production')
+                })
+              ]，
+            input:'./src/nodeui/config/index.js'
+        })).pipe(gulp.dest('./dist'));
+    });
+</code></pre>
+
+</li>
+<li>
+<p>这时候执行npm run server:dev 就会看到dist/config/index.js已经精简化了。</p>
+</li>
+<li>
+<p>将代码中的gulp.task分开写到gulpfile.js中，因为不分开它们会冲突</p>
+<pre><code>    //上线环境的Gulp
+    gulp.task("buildprod", () =&gt; {
+        return gulp.src('./src/nodeuii/**/*.js')
+            .pipe(babel({
+                babelrc: false,
+                ignore: ['./src/nodeuii/config/index.js'],
+                "plugins": ["transform-es2015-modules-commonjs"]
+            }))
+            .pipe(gulp.dest('./dist'));
+    });
+
+    gulp.task("buildconfig", () =&gt; {
+        gulp.src('./src/nodeuii/**/*.js')
+            .pipe(rollup({
+                output: {
+                    format: "cjs"
+                },
+                plugins: [
+                    replace({
+                        "process.env.NODE_ENV": JSON.stringify('production')
+                    })
+                ],
+                input: './src/nodeuii/config/index.js'
+            }))
+            .pipe(gulp.dest('./dist'));
+    });
+
+    let _task = ["builddev"];
+    if (process.env.NODE_ENV == "production") {
+        //_task = ["buildprod","buildconfig"];
+        _task = gulpSequence("buildprod", "buildconfig");
+    }
+</code></pre>
+
+</li>
+<li>
+<p>安装gulp-sequence</p>
+<pre><code>npm install --save-dev gulp-sequence
+//引用
+const gulpSequence = require('gulp-sequence')
+</code></pre>
+
+</li>
+<li>执行npm run server:prod可以看到dist/config目录下的index.js已经被简化，cd dist 执行sudo node app.js如果运行正常，打开浏览器输入localhost，可以看到helloworld已经正常显示。</li>
+<li>
+<p>容错</p>
+<ol>
+<li>
+<p>网站常会遇到404，500等错误，我们要收集起来。</p>
+<pre><code>middwares目录下创建errorHandler.js文件。
+
+const errorHandler = {
+    error(app){
+        app.use(async(ctx,next)=&gt;{
+            if(404 != ctx.status) return;
+            ctx.status = 404;
+            //打电话 发短信 发邮件
+            ctx.body = '&lt;script type="text/javascript" src="//qzonestyle.gtimg.cn/qzone/hybrid/app/404/search_children.js" charset="utf-8" homePageUrl="/" homePageName="回到我的主页"&gt;&lt;/script&gt;';
+        });
+    }
+}
+export default errorHandler;
+</code></pre>
+
+</li>
+<li>
+<p>app.js中引入</p>
+<pre><code>import errorHandler from './middwares/errorHandler.js';
+errorHandler.error(app);
+</code></pre>
+
+</li>
+</ol>
+</li>
+<li>
+<p>打日志，使用log4js</p>
+<ol>
+<li>
+<p>安装log4js</p>
+<pre><code>npm install log4js
+</code></pre>
+
+</li>
+<li>
+<p>app.js中引入并使用，比如我们将刚才的404错误打印成日志</p>
+<pre><code>import log4js from 'log4js';
+
+
+log4js.configure({
+    appenders: {
+        cheese: {
+            type: 'file',
+            filename: __dirname + '/logs/ydlogs.log'//这里是将log强行生成到dist目录
+        }
+    },
+    categories: {
+        default: {
+            appenders: ['cheese'],
+            level: 'error'
+        }
+    }
+});
+
+const logger = log4js.getLogger('cheese');
+errorHandler.error(app, logger);
+
+    //errorHandler.js
+    const errorHandler = {
+        error(app,logger){
+            app.use(async(ctx,next)=&gt;{
+                try{
+                    await next();
+                }catch(error){
+                    logger.error(error);
+                    ctx.status = error.status || 500;
+                    ctx.body = "☹网站挂掉了~";
+                }
+            });
+            app.use(async(ctx,next)=&gt;{
+                await next();
+                if(404 != ctx.status) return;
+                ctx.status = 404;
+                //打电话 发短信 发邮件
+                logger.error("我的天啊404👻");
+                ctx.body = '&lt;script type="text/javascript" src="//qzonestyle.gtimg.cn/qzone/hybrid/app/404/search_children.js" charset="utf-8" homePageUrl="/" homePageName="回到我的主页"&gt;&lt;/script&gt;';
+            });
+        }
+    }
+export default errorHandler;
+</code></pre>
+
+</li>
+</ol>
+</li>
+<li>
+<p>生成文档注释：</p>
+<ol>
+<li>
+<p>在models目录下创建indexModel.js文件，这里面这要写和后台交互的代码，比如请求后台接口。</p>
+<pre><code>/**
+ * @fileOverview 实现index的数据模型
+ * @author yuanzhijia@yidengxuetang.com
+ */
+const path = require("path");
+/**
+ * IndexModel类，生成一段异步的数据
+ * @class
+ */
+export default class IndexModel{
+    /**
+     * @constructor
+     * @param {string} app koa2的上下文环境
+     */
+    constructor(app){
+        this.app = app;
+    }
+    /**
+     * 获取具体的API的接口数据
+     * @returns {Promise}返回的异步处理结果
+     * @example
+     * return new Promise
+     * getData()
+     */
+    getData(){
+        return new Promise((resolve,reject)=&gt;{
+            setTimeout(()=&gt;{
+                resolve("Hello Action");
+            },1000);
+        })
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>在routes中创建indexController.js文件，并引用indexModel.js</p>
+<pre><code>import IndexModel from "../models/IndexModel.js";
+const indexController = {
+    indexAction() {
+        return async (ctx, next) =&gt; {
+            const indexmodel = new IndexModel();
+            const result = await indexmodel.getData();
+            // const result2 = result + data;
+            ctx.body = await ctx.render("index",{data:result});
+        }
+    },
+    testAction() {
+        return async (ctx, next) =&gt; {
+            ctx.body = await ctx.render("index/test.html");
+        }
+    }
+}
+export default indexController;
+</code></pre>
+
+</li>
+<li>
+<p>我们在indexModel.js中写了一些文件注释，接下来我们要生成文档，安装 jsdoc</p>
+<pre><code>npm install --save-dev jsdoc
+</code></pre>
+
+</li>
+<li>
+<p>在package.json中添加npm执行命令：</p>
+<pre><code>"scripts": {
+    "docs": "jsdoc ./src/nodeuii/**/*.js -d ./docs/jsdocs"
+  }
+</code></pre>
+
+</li>
+<li>终端进入项目目录，执行npm run docs ，就可以看到项目中生成了docs目录，里面存放着生成的说明文档，我们也可以将自动化测试生成的文档也放在这个目录中。</li>
+</ol>
+</li>
+<li>
+<p>安装koa-static和koa-swig、co</p>
+<pre><code>    npm install koa-static
+    npm install koa-swig
+    npm install co
+</code></pre>
+
+</li>
+<li>
+<p>app.js中使用:</p>
+<pre><code>    import serve from "koa-static";
+    import render from "koa-swig";
+    import co from 'co';
+
+    app.context.render = co.wrap(render({
+        root: config.viewDir,
+        autoescape: true,
+        cache: 'memory', // disable, set to false
+        ext: 'html',
+        writeBody: false
+    }));
+    app.use(serve(config.staticDir));
+</code></pre>
+
+</li>
+<li>
+<p>这里的render()和serve()我们都没有使用直接的路径，而是写到了一个专门的路径配置中，在config中创建我们所写的路径.</p>
+<pre><code>    import {join} from "path";
+
+    let config = {
+        env: process.env.NODE_ENV,
+        staticDir: join(__dirname,"..","assets"),
+        viewDir: join(__dirname,"..","views"),
+    }
+</code></pre>
+
+</li>
+</ol>
+<h2>注意点：</h2>
+<ol>
+<li>单页，spa，是指a溶入到b，</li>
+<li>多页，mpa，是指a跳转到b。</li>
+<li>想编写真正的多页，需要用到后端</li>
+</ol>
+
+
+
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
+</body></html>
