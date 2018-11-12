@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)file:///C:/Users/Administrator/AppData/Local/Temp/MarkdownPadPreview.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>阿里云搭建nginx</title>
+
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<!--<base href="file:\\\C:\Users\Administrator\Desktop\">--><base href=".">
+</head>
+<body>
+<h1>阿里云服务器centos配置nginx流程</h1>
+<h3>1. 登录阿里云，进入服务器的控制面板界面</h3>
+<p><img src="./阿里云搭建nginx_files/1.png" alt="图片"></p>
+<h3>2. 点击远程连接，输入运程连接密码，进入linux界面（也可以使用自己的电脑直接远程连接控制，如果自己的电脑是linux或mac，可以在终端使用ssh命令连接，如：ssh root@192.168.0.1）</h3>
+<p><img src="./阿里云搭建nginx_files/2.png" alt="图片"></p>
+<h3>3. 输入用户名root，输入密码（如果忘记可以重置，但重置后要重启服务器）</h3>
+<p><img src="./阿里云搭建nginx_files/3.png" alt="图片"></p>
+<h3>4. 登录nginx.org</h3>
+<p><img src="./阿里云搭建nginx_files/4.png" alt="5"></p>
+<h3>5. 右键，复制链接地址</h3>
+<p><img src="./阿里云搭建nginx_files/5.png"></p>
+<h3>6. 进入终端界面，创建一个安装目录，如：nginxinstall,使用命令：mkdir nginx创建目录</h3>
+<h3>7. 查看系统中是否有wget命令：wget -help，如果没有wget命令，就使用：yum install wget安装wget命令。</h3>
+<h3>8. 运行命令wget,将刚才复制的链接写在wget后面：wget http://nginx.org/download/nginx-1.14.1.tar.gz</h3>
+<p><img src="./阿里云搭建nginx_files/6.png"></p>
+<h3>9. 使用tar zxvf 下载好的压缩名  命令来解压刚才下载好的压缩包</h3>
+<p><img src="./阿里云搭建nginx_files/7.png"></p>
+<h3>10. 进入到解压后的目录，查看目录里面的文件，找到configure文件。</h3>
+<p><img src="./阿里云搭建nginx_files/8.png"></p>
+<h3>11. 执行这个文件，使用: ./文件名     执行完后会生成一个Markfile文件</h3>
+<p><img src="./阿里云搭建nginx_files/9.png"></p>
+<h3>12. 直接输入命令:make       编辑这个文件,做这一步的时候出现了一个错误</h3>
+<p><img src="./阿里云搭建nginx_files/10.png"></p>
+<h3>解决办法是重新./configure,估计是刚才没有生成好，或者是需要重新编辑一下。</h3>
+<p><img src="./阿里云搭建nginx_files/12.png"></p>
+<h3>13. 编辑完Makefile文件后会生成一个objs目录，执行make install，就会将编辑好的Makefile文件安装到系统中，安装的目录是:/usr/local/nginx</h3>
+<p><img src="./阿里云搭建nginx_files/13.png"></p>
+<h3>14. cd /usr/local/nginx进入到这个目录，ls 我们会发现里面有一个sbin目录我们的nginx就在这个目录里面,cd sbin ，ls 会发现里面有一个nginx文件。 ./nginx执行这个文件，这个时候nginx就执行起来了，我们就可以通过页面访问我们的服务器了。</h3>
+<p><img src="./阿里云搭建nginx_files/14.png"></p>
+<h3>15. 但是由于第一次用阿里云服务器，所以遇到了一个惨绝人寰的问题，如果是在自己电脑上配置nginx，走到这一步已经可以启动nginx并且访问页面了，但是阿里云服务器还要在管理台开启80端口，这问题折腾了好久......</h3>
+<h3>16. 进入到阿里服务器配置面板</h3>
+<p><img src="./阿里云搭建nginx_files/15.png">
+<img src="./阿里云搭建nginx_files/16.png">
+<img src="./阿里云搭建nginx_files/17.png">
+<img src="./阿里云搭建nginx_files/18.png"></p>
+<h3>17. 点击确定后，这时在你的浏览器中访问阿里云给你的公网ip就可以看到nginx的欢迎界面。</h3>
+<p><img src="./阿里云搭建nginx_files/19.png"></p>
+<h2>注意点：</h2>
+<ol>
+<li>登录带有端口号的服务器使用-p 如： root@192.168.0.1 -p 8080</li>
+</ol>
+
+
+
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
+</body></html>
